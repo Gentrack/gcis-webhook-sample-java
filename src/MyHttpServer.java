@@ -8,6 +8,8 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 public class MyHttpServer {
+    public static final int PORT = 8500;
+    public static final String PATH = "/events";
     public static final String PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\n" +
             "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzXMzPHjqwmHsAJ8thkP9\n" +
             "abNbyFuUqbmJNwKmG5j9wVcC4D1hMFY6MzTNTZWoI3VviYbKJXhcqR35WlEfmXCs\n" +
@@ -19,9 +21,10 @@ public class MyHttpServer {
             "-----END PUBLIC KEY-----";
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8500), 0);
-        HttpContext context = server.createContext("/events");
+        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
+        HttpContext context = server.createContext(PATH);
         context.setHandler(MyHttpServer::handleRequest);
+        System.out.println("Listening on port " + PORT + ", endpoint " + PATH);
         server.start();
     }
 
