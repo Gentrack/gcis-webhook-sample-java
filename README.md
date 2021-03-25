@@ -24,6 +24,6 @@ The webhook will now process requests at the endpoint: `http://localhost:8500/ev
 ```
 ngrok http 8500
 ```
-* Log in to the developer portal and create a new application. On the *Event Subscription* page, subscribe to events to test and set the endpoint URL to the ngrok https forwarding URL: e.g., `https://7d55765d.ngrok.io/webhook`.
+* Log in to the developer portal and create a new application. On the *Event Subscription* page, subscribe to events to test and set the endpoint URL to the ngrok https forwarding URL: e.g., `https://7d55765d.ngrok.io/events`.
 * Start webhook as per instructions above.
 * Send test events using the simulator from the *Event Subscription* page on the developer portal. Check event payload from the webhook.
